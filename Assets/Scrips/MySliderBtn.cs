@@ -27,8 +27,8 @@ namespace Unite
             Vector2 pos;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTran.GetComponent<RectTransform>(),
                 Input.mousePosition, null, out pos);
-
-            pos = myslider.Clamp(pos,transform);     
+            
+            pos = myslider.Clamp(pos,transform);
             transform.localPosition = pos;
             myslider.OnDrag();
         }
