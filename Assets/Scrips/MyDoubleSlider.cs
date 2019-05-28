@@ -18,6 +18,9 @@ namespace Unite
         int Count = 12;
         private Transform leftTran, rightTran;
 
+        [SerializeField]
+        private Canvas Canvas;
+
         float width, height,InitPosX;
         float uniteLength;
         protected override void Awake()
@@ -25,10 +28,15 @@ namespace Unite
             base.Awake();
             leftTran = transform.Find("Left");
             rightTran = transform.Find("Right");
-            width = rectTransform.rect.size.x;
+        }
+
+        void Start()
+        {
+            width = rectTransform.rect.width;
             height = rectTransform.rect.size.y;
             InitPosX = transform.localPosition.x;
             uniteLength = width / Count;
+            Debug.Log(rectTransform.sizeDelta);
         }
 
 
@@ -72,7 +80,7 @@ namespace Unite
             }
             return v;
         }
-
+        
 
         /// <summary>
         /// 拖动两端的时候调用这个脚本  
